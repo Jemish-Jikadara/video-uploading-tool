@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Video Platform</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="navbar">
+
+            <div class="logo">🎬 My Video Platform</div>
+
+            <div id="navUser">
+
+                <button onclick="goLogin()">Login</button>
+
+            </div>
+
+        </header>
+
+        <div class="container">
+
+            <div class="upload-box">
+
+                <h3>Upload Video</h3>
+
+                <form id="uploadForm">
+
+                    <input name="title" placeholder="Title" required>
+                    <br><br>
+
+                    <textarea name="description"
+                        placeholder="Description"></textarea>
+                    <br><br>
+
+                    <input type="file" name="video" required>
+
+                    <button>Upload</button>
+
+                </form>
+
+            </div>
+
+            <h2>Videos</h2>
+
+            <div class="video-grid" id="videos"></div>
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
