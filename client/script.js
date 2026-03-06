@@ -42,18 +42,43 @@
         updateNavbar()
 
 
-        const form = document.getElementById("uploadForm")
+      const form = document.getElementById("uploadForm")
 
         form.addEventListener("submit", async (e) => {
 
             e.preventDefault()
 
-            const data = new FormData(form)
+           const xhr = new XMLHttpRequest()
 
-            await fetch("/upload", {
-                method: "POST",
-                body: data
-            })
+xhr.open("POST","/upload",true)
+
+document.getElementById("progressBox").style.display="block"
+
+xhr.upload.onprogress = function(e){
+
+ if(e.lengthComputable){
+
+  const percent = Math.round((e.loaded/e.total)*100)
+
+  document.getElementById("progressBar").value = percent
+
+  document.getElementById("percent").innerText = percent + "%"
+
+ }
+
+}
+
+xhr.onload = function(){
+
+ alert("Uploaded")
+
+ document.getElementById("progressBox").style.display="none"
+
+ loadVideos()
+
+}
+
+xhr.send(data)
 
             alert("Uploaded")
 
